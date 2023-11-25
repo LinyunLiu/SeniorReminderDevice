@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Senior Reminder Device</title>
+    <link rel="stylesheet" href="style.css" id="link">
+    <script src="script.js"></script>
+</head>
+<body onload="loadDataFromServer()">
+    <div class="main">
+        <div class="title">
+            <p class="title">Senior Reminder Portal</p>
+        </div>
+        <div class="reminders" id="reminders">
+            <!-- Reminders Here  -->
+        </div>
+        <!-- Container for add button  -->
+        <div class="container-for-add-button">
+            <button onclick="addOneEmptyReminderSection(addCount)">Add</button>
+        </div>
+        <!-- Container for update button  -->
+        <div class="container-for-update-button">
+            <button onclick="updateDataAtServer()">Update</button>
+        </div>
+    </div>
+</body>
+</html>

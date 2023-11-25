@@ -1,0 +1,67 @@
+body{
+    font-family: 'Avenir', sans-serif;
+    font-size: 20px;
+    background-size: cover;
+    background: url("https://cf.ltkcdn.net/seniors/images/orig/216621-2121x1414-Senior-couple.jpg") repeat fixed center;
+    margin: 15px;
+}
+p.title{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 36px;
+    color: white;
+    font-weight: bold;
+}
+div.main{
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    padding: 100px 100px 100px 100px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    flex-direction: column;
+    min-width: 320px;
+}
+div.reminders div{
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    padding: 10px 10px 10px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+div.reminders div *{
+    margin-right: 5px;
+}
+button.delete{
+    color: red;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+div.container-for-add-button{
+    margin-top: 20px;
+    float: right;
+}
+div.container-for-update-button{
+    margin-top: 20px;
+    float: left;
+}
+div.container-for-add-button button{
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+}
+div.container-for-update-button button{
+    width: 200px;
+    height: 30px;
+    font-weight: bold;
+    color: limegreen;
+}
