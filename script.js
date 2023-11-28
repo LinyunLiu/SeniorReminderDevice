@@ -6,7 +6,9 @@ async function loadDataFromServer() {
         const response = await fetch('http://10.18.7.90:3000/data');
         const text = await response.text();
         data = text.toString().split('\n')
-        OnLoadReminderCount = data.length
+        document.getElementById('email').value = data[0];
+        data.splice(0, 1)
+        OnLoadReminderCount = data.length // the first line is email address instead of reminder data
         for (let i= 0; i<OnLoadReminderCount; i++){
             let line = data[i].toString().split(',')
             console.log(line);
@@ -31,9 +33,9 @@ function addOneEmptyReminderSection(index){
                                 <option value="Pill">Pill</option>
                                 <option value="Task">Task</option>
                                 <option value="Other">Other</option>
-                            </select>
-                            
+                            </select>                        
                             </label>
+                            
                             <label>
                                 <input type="text" id="description-${index}-1" placeholder="Description" value="">
                             </label>
@@ -115,17 +117,21 @@ function deleteSection(index){
         addOneEmptyReminderSection(i)
         addOneReminderInfo(i, line[0], line[1], line[2], line[3], line[4], active)
     }
-
-
-
 }
 async function updateDataAtServer() {
+    let email = "oliverleo574@gmail.com" //default
+    let email_tmp = document.getElementById('email').value;
+    if (email_tmp.toString().trim() !== ""){
+        email = email_tmp
+    }
     let updatedData = extractAllReminders()
     let dataAsString = ""
+    dataAsString = dataAsString.concat(email+"\n")
     for (let i=0; i<updatedData.length-1; i++){
         dataAsString = dataAsString.concat(updatedData[i]+"\n")
     }
     dataAsString = dataAsString.concat(updatedData[updatedData.length-1])
+    alert("Update Successful")
     try {
         const response = await fetch('http://10.18.7.90:3000/update', {
             method: 'POST',
@@ -135,7 +141,6 @@ async function updateDataAtServer() {
             body: dataAsString
         });
         console.log(response)
-        alert("Update Successful")
     }catch (error){
         console.error('Error updating data:', error);
         alert("Server Offline")
