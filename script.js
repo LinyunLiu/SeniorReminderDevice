@@ -131,7 +131,6 @@ async function updateDataAtServer() {
         dataAsString = dataAsString.concat(updatedData[i]+"\n")
     }
     dataAsString = dataAsString.concat(updatedData[updatedData.length-1])
-    alert("Update Successful")
     try {
         const response = await fetch('http://10.18.7.90:3000/update', {
             method: 'POST',
@@ -140,6 +139,7 @@ async function updateDataAtServer() {
             },
             body: dataAsString
         });
+        alert("Update Successful")
         console.log(response)
     }catch (error){
         console.error('Error updating data:', error);
